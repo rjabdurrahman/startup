@@ -70,23 +70,6 @@ a {
     min-height: 420px;
 }
 
-/* Header Nav div */
-
-.header-nav {
-    background-color: #014387;
-    color: white !important;
-    display: flex !important;
-    padding: 5px 10px 10px 30px;
-    height: 35px;
-    box-sizing: unset;
-    position: fixed;
-    width: calc(100% - 40px);
-    padding-top: 10px;
-    padding-bottom: 16px;
-    /* box-shadow: 1px 1px 1px 0.5px gray; */
-    z-index: 9999;
-}
-
 /* Before Login Btn */
 
 .home-unlog .w3-btn {
@@ -98,21 +81,6 @@ a {
     margin-right: 20px;
 }
 
-.top-login * {
-    margin-right: 8px !important;
-    margin-top: 4px !important;
-}
-
-.top-login input {
-    width: 160px;
-}
-
-.top-login button {
-    outline: none;
-    border: none;
-    cursor: pointer;
-    padding: 0 12px;
-}
 
 .div-box {
     width: 500px !important;
