@@ -1,33 +1,129 @@
-.App {
-  text-align: center;
+body {
+    background-color: white;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+a {
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.mian-color, .mian-color a, .mian-color button {
+    color: #014387 !important;
 }
 
-.App-link {
-  color: #61dafb;
+.main-bg-color {
+    background-color: #014387 !important;
+    color: white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.robo-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+.mont-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+.ex-font {
+    font-family: 'Exo 2', sans-serif;
+}
+
+.clearfix::after, .clearfix::before {
+    content: "";
+    display: block;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.flex {
+    display: -webkit-box !important;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box !important;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox !important;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex !important;
+    /* NEW - Chrome */
+    display: flex !important;
+}
+
+.overlay-container {
+    padding-top: 60px;
+    width: 100%;
+    min-height: 420px;
+    /* background-image: url(../img/bu-bg.jpg); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px 50px;
+}
+
+.overlay {
+    border: 1px solid transparent;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 420px;
+}
+
+/* Header Nav div */
+
+.header-nav {
+    background-color: #014387;
+    color: white !important;
+    display: flex !important;
+    padding: 5px 10px 10px 30px;
+    height: 35px;
+    box-sizing: unset;
+    position: fixed;
+    width: calc(100% - 40px);
+    padding-top: 10px;
+    padding-bottom: 16px;
+    /* box-shadow: 1px 1px 1px 0.5px gray; */
+    z-index: 9999;
+}
+
+/* Before Login Btn */
+
+.home-unlog .w3-btn {
+    padding: 8px 100px !important;
+    margin-top: 5px;
+}
+
+.home-unlog .w3-btn:first-child {
+    margin-right: 20px;
+}
+
+.top-login * {
+    margin-right: 8px !important;
+    margin-top: 4px !important;
+}
+
+.top-login input {
+    width: 160px;
+}
+
+.top-login button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 12px;
+}
+
+.div-box {
+    width: 500px !important;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Features */
+
+.fet {
+    font-weight: bold;
+    font-size: 18px;
+    color: #014387;
 }
