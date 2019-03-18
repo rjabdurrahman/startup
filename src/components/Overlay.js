@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import './Overlay.css';
+import Background from './bu-bg.jpg';
+import './Overlay.css'
 
 class Overlay extends Component {
     render() {
         return (
-            <div className="overlay-container">
+            <div className="overlay-container" style={{ backgroundImage: `url(${Background})` }}>
                 <div className="overlay">
                     <div className="w3-container home-unlog" style={{ marginTop: '110px' }}>
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
