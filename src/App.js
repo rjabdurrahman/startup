@@ -4,6 +4,7 @@ import './App.css';
 import TopNav from './components/TopNav';
 import './w3.css';
 import Overlay from './components/Overlay';
+import CardArea from './components/CardArea';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <div>
         <TopNav />
         <Overlay />
+        <CardArea/>
       </div>
     );
   }
