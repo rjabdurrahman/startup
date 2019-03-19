@@ -17,7 +17,7 @@ class Register extends Component {
                                         <label className="w3-medium">Username</label>
                                     </div>
                                     <div className="w3-rest">
-                                        <input className="w3-input w3-border" type="text" name id="payACCode" required />
+                                        <input className="w3-input w3-border" type="text" id="payACCode" required />
                                     </div>
                                 </div>
                                 <div className="w3-row w3-section">
@@ -25,7 +25,7 @@ class Register extends Component {
                                         <label className="w3-medium">Email</label>
                                     </div>
                                     <div className="w3-rest">
-                                        <input className="w3-input w3-border" type="text" name id="payPartyName" required />
+                                        <input className="w3-input w3-border" type="text" id="payPartyName" required />
                                     </div>
                                 </div>
                                 <div className="w3-row w3-section">
@@ -33,7 +33,7 @@ class Register extends Component {
                                         <label className="w3-medium">Password</label>
                                     </div>
                                     <div className="w3-rest">
-                                        <input className="w3-input w3-border" type="text" name id="payPartyType" required />
+                                        <input className="w3-input w3-border" type="text" id="payPartyType" required />
                                     </div>
                                 </div>
                                 <div className="w3-row w3-section">
@@ -41,7 +41,7 @@ class Register extends Component {
                                         <label className="w3-medium">Re Passowrd</label>
                                     </div>
                                     <div className="w3-rest">
-                                        <input className="w3-input w3-border" type="text" name id="payProprietor" required />
+                                        <input className="w3-input w3-border" type="text" id="payProprietor" required />
                                     </div>
                                 </div>
                                 <p>

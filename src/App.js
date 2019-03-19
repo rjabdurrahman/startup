@@ -6,7 +6,7 @@ import './w3.css';
 import Overlay from './components/Overlay';
 import CardArea from './components/CardArea';
 import Footer from './components/Footer';
-// import Register from './components/Register';
+import Register from './components/Register';
 
 class App extends Component {
   constructor() {
@@ -31,7 +31,7 @@ class App extends Component {
           </div>
         </Overlay>
         {this.state.showRegister && <div><h1>lorem Ipsum and the best man is here to sthe fun</h1><h1>lorem Ipsum and the best man is here to sthe fun</h1></div>}
-        {/* <Register /> */}
+        <Register />
         <CardArea />
         <Footer />
       </div>
