@@ -9,6 +9,16 @@ import Footer from './components/Footer';
 // import Register from './components/Register';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      register: false
+    }
+  }
+  showReg() {
+    this.setState({ register: true });
+    console.log(this.state.register);
+  }
   render() {
     return (
       <div>
@@ -16,11 +26,11 @@ class App extends Component {
         <Overlay>
           <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
           <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
-            <button className="w3-btn main-bg-color" onClick={this.showReg}>Startup</button>
-            <button className="w3-btn main-bg-color" onClick={this.showReg}>Experienced</button>
+            <button className="w3-btn main-bg-color" onClick={() => this.showReg()}>Startup</button>
+            <button className="w3-btn main-bg-color" onClick={() => this.showReg()}>Experienced</button>
           </div>
         </Overlay>
-        {/* <Register/> */}
+        {/* <Register /> */}
         <CardArea />
         <Footer />
       </div>
