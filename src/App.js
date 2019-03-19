@@ -17,7 +17,6 @@ class App extends Component {
   }
   showReg() {
     this.setState({ showRegister: true });
-    console.log(this.state.showRegister);
   }
   render() {
     return (

@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 
 class Register extends Component {
+    constructor() {
+        super()
+        this.state = {
+            show: true
+        }
+    }
     render() {
         return (
-            <div style={this.props.show ? {display: 'block'} : {display: 'none'}} className="w3-modal">
+            <div style={this.props.show && this.state.show ? { display: 'block' } : { display: 'none' }} className="w3-modal">
                 <div className="w3-modal-content w3-animate-zoom div-box" style={{ backgroundColor: 'transparent' }}>
                     <div className="w3-light-gray w3-card-4 margin-auto">
                         <div className="w3-container main-bg-color div-title">
-                            <span className="w3-button w3-display-topright">×</span>
+                            <span onClick={() => this.setState({ show: false })} className="w3-button w3-display-topright">×</span>
                             <h2>Register</h2>
                         </div>
                         <div className="w3-container">
