@@ -28,6 +28,10 @@ a {
     font-family: 'Exo 2', sans-serif;
 }
 
+.pac-font {
+    font-family: 'Pacifico', cursive;
+}
+
 .clearfix::after, .clearfix::before {
     content: "";
     display: block;
@@ -63,7 +67,6 @@ a {
 .home-unlog .w3-btn:first-child {
     margin-right: 20px;
 }
-
 
 .div-box {
     width: 500px !important;

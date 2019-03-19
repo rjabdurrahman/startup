@@ -9,8 +9,7 @@ class TopNav extends Component {
                 <div className="header-nav" style={{ justifyContent: 'space-between' }}>
                     <div style={{ fontFamily: '"Pacifico", cursive', fontSize: '25px' }}>
                         <a href="#/">
-                            <img src="img/logo3.png" alt="logo" height={40} />
-                            <img src="img/logo.png" alt="logo" height={30} />
+                            <h2 style={{margin: '0'}} className="pac-font">StartupPoint</h2>
                         </a>
                     </div>
                     <div className="flex top-login">
