@@ -12,12 +12,12 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      register: false
+      showRegister: false
     }
   }
   showReg() {
-    this.setState({ register: true });
-    console.log(this.state.register);
+    this.setState({ showRegister: true });
+    console.log(this.state.showRegister);
   }
   render() {
     return (
@@ -30,6 +30,7 @@ class App extends Component {
             <button className="w3-btn main-bg-color" onClick={() => this.showReg()}>Experienced</button>
           </div>
         </Overlay>
+        {this.state.showRegister && <div><h1>lorem Ipsum and the best man is here to sthe fun</h1><h1>lorem Ipsum and the best man is here to sthe fun</h1></div>}
         {/* <Register /> */}
         <CardArea />
         <Footer />
