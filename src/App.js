@@ -13,10 +13,16 @@ class App extends Component {
     return (
       <div>
         <TopNav />
-        <Overlay />
+        <Overlay>
+          <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
+          <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
+            <button className="w3-btn main-bg-color" onClick={this.showReg}>Startup</button>
+            <button className="w3-btn main-bg-color" onClick={this.showReg}>Experienced</button>
+          </div>
+        </Overlay>
         {/* <Register/> */}
-        <CardArea/>
-        <Footer/>
+        <CardArea />
+        <Footer />
       </div>
     );
   }
