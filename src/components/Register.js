@@ -51,8 +51,8 @@ class Register extends Component {
                                     </div>
                                 </div>
                                 <p>
-                                    <input className="w3-check" type="checkbox" defaultChecked="checked" />
-                                    <label>I accept the Terms and Conditions.</label></p>
+                                    <input className="w3-check" type="checkbox" />
+                                    <label style={{ fontSize: '12px', color: 'indigo' }}>I accept the <a style={{ color: 'blue' }} href="#">Terms and Conditions</a>.</label></p>
                                 <p>
                                 </p><p className="clearfix">
                                     <button id="submitPayBtn" className="w3-btn main-bg-color div-title" style={{ float: 'right' }}>Submit</button>
