@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Register extends Component {
     render() {
         return (
-            <div className="w3-modal">
+            <div style={this.props.show ? {display: 'block'} : {display: 'none'}} className="w3-modal">
                 <div className="w3-modal-content w3-animate-zoom div-box" style={{ backgroundColor: 'transparent' }}>
                     <div className="w3-light-gray w3-card-4 margin-auto">
                         <div className="w3-container main-bg-color div-title">

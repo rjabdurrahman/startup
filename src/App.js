@@ -30,8 +30,7 @@ class App extends Component {
             <button className="w3-btn main-bg-color" onClick={() => this.showReg()}>Experienced</button>
           </div>
         </Overlay>
-        {this.state.showRegister && <div><h1>lorem Ipsum and the best man is here to sthe fun</h1><h1>lorem Ipsum and the best man is here to sthe fun</h1></div>}
-        <Register />
+        <Register show={this.state.showRegister} />
         <CardArea />
         <Footer />
       </div>
