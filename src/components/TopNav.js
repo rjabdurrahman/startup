@@ -9,7 +9,7 @@ class TopNav extends Component {
                 <div className="header-nav" style={{ justifyContent: 'space-between' }}>
                     <div style={{ fontFamily: '"Pacifico", cursive', fontSize: '25px' }}>
                         <a href="#/">
-                            <h2 style={{margin: '0'}} className="pac-font">StartupPoint</h2>
+                            <h2 style={{margin: '0'}} className="pac-font">TenStartup</h2>
                         </a>
                     </div>
                     <div className="flex top-login">
