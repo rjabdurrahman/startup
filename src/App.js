@@ -6,6 +6,7 @@ import './w3.css';
 import Overlay from './components/Overlay';
 import CardArea from './components/CardArea';
 import Footer from './components/Footer';
+import Post from './components/Post';
 
 class App extends Component {
   constructor() {
@@ -80,6 +81,7 @@ class App extends Component {
           </div>
         </div>
         <CardArea />
+        <Post/>
         <Footer />
       </div>
     );
