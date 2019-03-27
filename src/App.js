@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import { Route, BrowserRouter } from "react-router-dom";
 import TopNav from './components/TopNav';
 import './w3.css';
 import Overlay from './components/Overlay';
@@ -20,7 +21,12 @@ class App extends Component {
     return (
       <div>
         <TopNav />
-        <Overlay>
+        <BrowserRouter>
+          <div>
+            <Route path='/posts' component={Post} />
+          </div>
+        </BrowserRouter>
+        {/* <Overlay>
           <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
           <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
             <button className="w3-btn main-bg-color" onClick={() => this.setState({ showRegister: true, regType: 'Startup' })}>Startup</button>
@@ -81,8 +87,8 @@ class App extends Component {
           </div>
         </div>
         <CardArea />
-        <Post/>
-        <Footer />
+        <Post /> */}
+        {/* <Footer /> */}
       </div>
     );
   }
