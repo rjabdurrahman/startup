@@ -28,12 +28,16 @@ class Post extends Component {
         ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
-                <ul className="w3-ul w3-border w3-card-2 post">
-                    <li className=" w3-light-gray">
-                        <h3>My Feeds</h3>
-                    </li>
-                    {postItems}
-                </ul>
+                <div className=" w3-border w3-card-2">
+                    <ul className="w3-ul">
+                        <li className=" w3-light-gray">
+                            <h3>My Feeds</h3>
+                        </li>
+                    </ul>
+                    <ul className="w3-ul post">
+                        {postItems}
+                    </ul>
+                </div>
             </div>
 
         )
