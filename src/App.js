@@ -23,10 +23,10 @@ class App extends Component {
         <TopNav />
         <BrowserRouter>
           <div>
-            <Route path='/posts' component={Post} />
+            <Route path='/posts' exact component={Post} />
           </div>
         </BrowserRouter>
-        {/* <Overlay>
+        <Overlay>
           <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
           <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
             <button className="w3-btn main-bg-color" onClick={() => this.setState({ showRegister: true, regType: 'Startup' })}>Startup</button>
@@ -87,7 +87,7 @@ class App extends Component {
           </div>
         </div>
         <CardArea />
-        <Post /> */}
+        <Post />
         <Footer />
       </div>
     );
