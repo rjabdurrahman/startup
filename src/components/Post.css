@@ -1,0 +1,6 @@
+.post .title:hover{
+    text-decoration: underline;
+}
+.post .title{
+    color: blue;
+}
