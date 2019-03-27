@@ -1,3 +1,7 @@
+.post{
+    height: calc(100vh - 165px);
+    overflow-y: auto;
+}
 .post .title:hover{
     text-decoration: underline;
 }
