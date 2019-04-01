@@ -4,7 +4,7 @@ import CardArea from '../CardArea';
 import Post from '../Post';
 
 export class Landing extends Component {
-    
+
     constructor() {
         super()
         this.state = {
@@ -77,7 +77,7 @@ export class Landing extends Component {
                     </div>
                 </div>
                 <CardArea />
-                <Post />
+                <Post title="Recent Feeds" />
             </div>
         )
     }

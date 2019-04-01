@@ -31,7 +31,7 @@ class Post extends Component {
                 <div className=" w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
-                            <h3>My Feeds</h3>
+                            <h3>{this.props.title ? this.props.title : 'My Feeds'}</h3>
                         </li>
                     </ul>
                     <ul className="w3-ul post">
