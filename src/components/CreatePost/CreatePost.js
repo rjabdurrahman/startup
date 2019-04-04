@@ -6,7 +6,7 @@ export class CreatePost extends Component {
         super(props);
         this.state = {
             post: {
-                category: '',
+                category: 'Project Managing',
                 title: '',
                 description: '',
                 budget: '',
@@ -23,11 +23,14 @@ export class CreatePost extends Component {
         }
         else this.state.post[event.target.name] = event.target.value;
         this.setState({ post: this.state.post });
-        console.log(this.state);
+        // console.log(this.state);
     }
     submitHanler = (event) => {
         event.preventDefault();
         console.log('submitted');
+        axios.post('http://localhost:5000/data/posts', this.state.post)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
     }
     render() {
         return (
@@ -42,7 +45,6 @@ export class CreatePost extends Component {
                         <form onSubmit={this.submitHanler}>
                             <p>
                                 <select className="w3-select w3-border" name="category" onChange={this.inputHandler}>
-                                    <option value="" disabled>Choose your option</option>
                                     <option value="Project Managing">Project Managing</option>
                                     <option value="Requirement Managing">Requirement Managing</option>
                                     <option value="Client Handling">Client Handling</option>
