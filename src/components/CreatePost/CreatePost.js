@@ -15,7 +15,12 @@ export class CreatePost extends Component {
         }
     }
     inputHandler = (event) => {
-        this.state.post[event.target.name] = event.target.value;
+        if(event.target.name === 'skills') {
+            this.state.post.skills = [];
+            var skills = this.state.post[event.target.name].concat(event.target.value.split(' '));
+            this.state.post.skills = skills;
+        }
+        else this.state.post[event.target.name] = event.target.value;
         this.setState({post : this.state.post});
         console.log(this.state);
     }
@@ -52,7 +57,7 @@ export class CreatePost extends Component {
                             <input className="w3-input w3-border" name="deadline" type="date" value={this.state.post.deadline} onChange={this.inputHandler} />
                         </p>
                         <p><label>Skills</label>
-                            <input className="w3-input w3-border" name="skills" type="text" />
+                            <input className="w3-input w3-border" name="skills" type="text" onChange={this.inputHandler} />
                         </p>
                         <p><button className="w3-btn main-bg-color">Submit</button></p>
                     </div>
