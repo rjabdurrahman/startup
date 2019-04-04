@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
 export class CreatePost extends Component {
-    constructor(){
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            post : {
-                category : '',
+            post: {
+                category: '',
                 title: '',
                 description: '',
                 budget: '',
@@ -13,6 +13,12 @@ export class CreatePost extends Component {
                 skills: []
             }
         }
+    }
+    inputHandler = (event) => {
+        // let data = { ...this.state.post };
+        this.state.post[event.target.name] = event.target.value;
+        this.setState({post : this.state.post});
+        console.log(this.state)
     }
     render() {
         return (
@@ -25,8 +31,8 @@ export class CreatePost extends Component {
                     </ul>
                     <div className="post" style={{ margin: '0 15px' }}>
                         <p>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="" disabled selected>Choose your option</option>
+                            <select className="w3-select w3-border" name="category">
+                                <option value="" disabled>Choose your option</option>
                                 <option value="project">Project Managing</option>
                                 <option value="requirement">Requirement Managing</option>
                                 <option value="client">Client Handling</option>
@@ -35,21 +41,21 @@ export class CreatePost extends Component {
                             </select>
                         </p>
                         <p><label>Post Title</label>
-                            <input className="w3-input w3-border" name="first" type="text" />
+                            <input className="w3-input w3-border" name="title" type="text" value={this.state.post.title} onChange={this.inputHandler} />
                         </p>
                         <p><label>Description</label>
-                            <textarea className="w3-input w3-border" name="last" type="text"></textarea>
+                            <textarea className="w3-input w3-border" name="description" type="text"></textarea>
                         </p>
                         <p><label>Budget</label>
-                            <input className="w3-input w3-border" name="first" type="number" />
+                            <input className="w3-input w3-border" name="budget" type="number" />
                         </p>
                         <p><label>Deadline</label>
-                            <input className="w3-input w3-border" name="first" type="date" />
+                            <input className="w3-input w3-border" name="deadline" type="date" />
                         </p>
                         <p><label>Skills</label>
-                            <input className="w3-input w3-border" name="first" type="text" />
+                            <input className="w3-input w3-border" name="skills" type="text" />
                         </p>
-                        <p><button class="w3-btn main-bg-color">Submit</button></p>
+                        <p><button className="w3-btn main-bg-color">Submit</button></p>
                     </div>
                 </div>
             </div>
