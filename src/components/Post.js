@@ -19,7 +19,7 @@ class Post extends Component {
     render() {
         const postItems = this.state.posts.map(post => (
             <li key={post.id}>
-                <a href="#">
+                <a href="http://gov.org">
                     <h4 style={{ margin: 0 }} className="title">{post.title}</h4>
                     <h6 style={{ margin: 0, display: 'inline' }} className="author">Author Name</h6>
                     <p>{post.body}</p>

@@ -15,10 +15,9 @@ export class CreatePost extends Component {
         }
     }
     inputHandler = (event) => {
-        // let data = { ...this.state.post };
         this.state.post[event.target.name] = event.target.value;
         this.setState({post : this.state.post});
-        console.log(this.state)
+        console.log(this.state);
     }
     render() {
         return (
@@ -31,26 +30,26 @@ export class CreatePost extends Component {
                     </ul>
                     <div className="post" style={{ margin: '0 15px' }}>
                         <p>
-                            <select className="w3-select w3-border" name="category">
+                            <select className="w3-select w3-border" name="category" onChange={this.inputHandler}>
                                 <option value="" disabled>Choose your option</option>
-                                <option value="project">Project Managing</option>
-                                <option value="requirement">Requirement Managing</option>
-                                <option value="client">Client Handling</option>
-                                <option value="crm">CRM</option>
-                                <option value="crm">SRM</option>
+                                <option value="Project Managing">Project Managing</option>
+                                <option value="Requirement Managing">Requirement Managing</option>
+                                <option value="Client Handling">Client Handling</option>
+                                <option value="CRM">CRM</option>
+                                <option value="SRM">SRM</option>
                             </select>
                         </p>
                         <p><label>Post Title</label>
                             <input className="w3-input w3-border" name="title" type="text" value={this.state.post.title} onChange={this.inputHandler} />
                         </p>
                         <p><label>Description</label>
-                            <textarea className="w3-input w3-border" name="description" type="text"></textarea>
+                            <textarea className="w3-input w3-border" name="description" type="text" value={this.state.post.description} onChange={this.inputHandler}></textarea>
                         </p>
                         <p><label>Budget</label>
-                            <input className="w3-input w3-border" name="budget" type="number" />
+                            <input className="w3-input w3-border" name="budget" type="number" value={this.state.post.budget} onChange={this.inputHandler} />
                         </p>
                         <p><label>Deadline</label>
-                            <input className="w3-input w3-border" name="deadline" type="date" />
+                            <input className="w3-input w3-border" name="deadline" type="date" value={this.state.post.deadline} onChange={this.inputHandler} />
                         </p>
                         <p><label>Skills</label>
                             <input className="w3-input w3-border" name="skills" type="text" />
