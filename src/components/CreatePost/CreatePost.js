@@ -34,6 +34,7 @@ export class CreatePost extends Component {
                         <p><label>Skills</label>
                             <input className="w3-input w3-border" name="first" type="text" />
                         </p>
+                        <p><button class="w3-btn main-bg-color">Submit</button></p>
                     </div>
                 </div>
             </div>
