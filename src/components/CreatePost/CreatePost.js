@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 
 export class CreatePost extends Component {
+    constructor(){
+        super();
+        this.state = {
+            post : {
+                category : '',
+                title: '',
+                description: '',
+                budget: '',
+                deadline: '',
+                skills: []
+            }
+        }
+    }
     render() {
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
@@ -14,9 +27,11 @@ export class CreatePost extends Component {
                         <p>
                             <select class="w3-select w3-border" name="option">
                                 <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                <option value="project">Project Managing</option>
+                                <option value="requirement">Requirement Managing</option>
+                                <option value="client">Client Handling</option>
+                                <option value="crm">CRM</option>
+                                <option value="crm">SRM</option>
                             </select>
                         </p>
                         <p><label>Post Title</label>
