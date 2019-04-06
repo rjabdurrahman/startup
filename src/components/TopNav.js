@@ -9,9 +9,10 @@ class TopNav extends Component {
         this.state = {
             username: '',
             password: '',
-            logged: false
+            logged: global.localStorage.getItem('user') ? true : false
         }
-        console.log(this.state.logged);
+        if (global.localStorage.getItem('user') && global.location.pathname != "/create-post")
+            global.location.href = "/create-post";
     }
     usernameInputHandler = (event) => {
         this.setState({ username: event.target.value });
