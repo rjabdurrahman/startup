@@ -24,13 +24,22 @@ export class Landing extends Component {
     inputHandler = (event) => {
         this.state.user[event.target.name] = event.target.value;
         this.setState({ user: this.state.user });
-        console.log(this.state);
     }
 
     updateType = (n) => {
         this.setState(
             { user: update(this.state.user, { type: { $set: n } }) }
         )
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        if(!this.state.agree){
+            alert('Please Agree Terms and Rules!');
+            return;
+        }
+        console.log('submitte');
+        console.log(this.state);
     }
 
     render() {
@@ -51,7 +60,7 @@ export class Landing extends Component {
                                 <h2>Register As a {this.state.regType}</h2>
                             </div>
                             <div className="w3-container">
-                                <form id="form1">
+                                <form onSubmit={this.submitHandler}>
                                     <div className="w3-row w3-section">
                                         <div className="w3-col" style={{ width: '120px', padding: '10px' }}>
                                             <label className="w3-medium">Username</label>
