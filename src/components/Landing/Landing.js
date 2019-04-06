@@ -1,3 +1,4 @@
+import update from 'react-addons-update';
 import React, { Component } from 'react'
 import Overlay from '../Overlay';
 import CardArea from '../CardArea';
@@ -9,8 +10,26 @@ export class Landing extends Component {
         super()
         this.state = {
             showRegister: false,
-            regType: 'Startup'
+            regType: 'Startup',
+            user: {
+                username: '',
+                email: '',
+                password: '',
+                type: 1
+            }
         }
+    }
+
+    inputHandler = (event) => {
+        this.state.user[event.target.name] = event.target.value;
+        this.setState({ user: this.state.user });
+        console.log(this.state);
+    }
+
+    updateType = (n) => {
+        this.setState(
+            {user: update(this.state.user, {type: {$set: n}})}
+        )
     }
 
     render() {
@@ -19,8 +38,8 @@ export class Landing extends Component {
                 <Overlay>
                     <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
                     <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
-                        <button className="w3-btn main-bg-color" onClick={() => this.setState({ showRegister: true, regType: 'Startup' })}>Startup</button>
-                        <button className="w3-btn main-bg-color" onClick={() => this.setState({ showRegister: true, regType: 'Experienced' })}>Experienced</button>
+                        <button className="w3-btn main-bg-color" onClick={() => {this.setState({ showRegister: true, regType: 'Startup' }); this.updateType(1)}}>Startup</button>
+                        <button className="w3-btn main-bg-color" onClick={() => {this.setState({ showRegister: true, regType: 'Experienced'}); this.updateType(2)}}>Experienced</button>
                     </div>
                 </Overlay>
                 <div style={this.state.showRegister ? { display: 'block' } : { display: 'none' }} className="w3-modal">
@@ -37,7 +56,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Username</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" id="payACCode" required />
+                                            <input className="w3-input w3-border" type="text" name="username" onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -45,7 +64,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Email</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" id="payPartyName" required />
+                                            <input className="w3-input w3-border" type="text" name="email" onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -53,7 +72,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Password</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" id="payPartyType" required />
+                                            <input className="w3-input w3-border" type="text" name="password" onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
