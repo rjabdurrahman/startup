@@ -29,7 +29,12 @@ export class CreatePost extends Component {
         event.preventDefault();
         console.log('submitted');
         axios.post('http://localhost:5000/data/posts', this.state.post)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data);
+                if(res.message){
+                    alert(res.message);
+                }
+            })
             .catch(err => console.log(err));
     }
     render() {

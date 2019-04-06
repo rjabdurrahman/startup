@@ -1,5 +1,5 @@
-import update from 'react-addons-update';
 import React, { Component } from 'react'
+import update from 'react-addons-update';
 import Overlay from '../Overlay';
 import CardArea from '../CardArea';
 import Post from '../Post';
@@ -16,7 +16,8 @@ export class Landing extends Component {
                 email: '',
                 password: '',
                 type: 1
-            }
+            },
+            agree: false
         }
     }
 
@@ -28,7 +29,7 @@ export class Landing extends Component {
 
     updateType = (n) => {
         this.setState(
-            {user: update(this.state.user, {type: {$set: n}})}
+            { user: update(this.state.user, { type: { $set: n } }) }
         )
     }
 
@@ -38,8 +39,8 @@ export class Landing extends Component {
                 <Overlay>
                     <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
                     <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
-                        <button className="w3-btn main-bg-color" onClick={() => {this.setState({ showRegister: true, regType: 'Startup' }); this.updateType(1)}}>Startup</button>
-                        <button className="w3-btn main-bg-color" onClick={() => {this.setState({ showRegister: true, regType: 'Experienced'}); this.updateType(2)}}>Experienced</button>
+                        <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Startup' }); this.updateType(1) }}>Startup</button>
+                        <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Experienced' }); this.updateType(2) }}>Experienced</button>
                     </div>
                 </Overlay>
                 <div style={this.state.showRegister ? { display: 'block' } : { display: 'none' }} className="w3-modal">
@@ -80,15 +81,15 @@ export class Landing extends Component {
                                             <label className="w3-medium">Re Passowrd</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" id="payProprietor" required />
+                                            <input className="w3-input w3-border" type="text" required />
                                         </div>
                                     </div>
                                     <p>
-                                        <input className="w3-check" type="checkbox" />
+                                        <input className="w3-check" type="checkbox" onChange={() => { this.setState({ agree: true }) }} />
                                         <label style={{ fontSize: '12px', color: 'indigo' }}>I accept the <a style={{ color: 'blue' }} href="terms">Terms and Conditions</a>.</label></p>
                                     <p>
                                     </p><p className="clearfix">
-                                        <button id="submitPayBtn" className="w3-btn main-bg-color div-title" style={{ float: 'right' }}>Submit</button>
+                                        <button className="w3-btn main-bg-color div-title" style={{ float: 'right' }}>Submit</button>
                                     </p>
                                 </form>
                             </div>
