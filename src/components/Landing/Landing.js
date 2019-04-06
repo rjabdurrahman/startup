@@ -35,7 +35,7 @@ export class Landing extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        if(!this.state.agree){
+        if (!this.state.agree) {
             alert('Please Agree Terms and Rules!');
             return;
         }
@@ -44,6 +44,16 @@ export class Landing extends Component {
             .then(res => {
                 console.log(res.data);
                 console.log(res.status);
+                this.setState({
+                    showRegister: false,
+                    user: {
+                        username: '',
+                        email: '',
+                        password: '',
+                        type: 1
+                    },
+                    agree: false
+                })
             })
             .catch(err => console.log(err));
     }
@@ -72,7 +82,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Username</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" name="username" onChange={this.inputHandler} required />
+                                            <input className="w3-input w3-border" type="text" name="username" value={this.state.user.username} onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -80,7 +90,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Email</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" name="email" onChange={this.inputHandler} required />
+                                            <input className="w3-input w3-border" type="text" name="email" value={this.state.user.email} onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -88,7 +98,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Password</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" name="password" onChange={this.inputHandler} required />
+                                            <input className="w3-input w3-border" type="text" name="password" value={this.state.user.password} onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
