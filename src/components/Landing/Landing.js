@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import update from 'react-addons-update';
+import axios from 'axios';
 import Overlay from '../Overlay';
 import CardArea from '../CardArea';
 import Post from '../Post';
@@ -39,7 +40,12 @@ export class Landing extends Component {
             return;
         }
         console.log('submitte');
-        console.log(this.state);
+        axios.post('http://localhost:5000/api/users/register', this.state.user)
+            .then(res => {
+                console.log(res.data);
+                console.log(res.status);
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
