@@ -54,15 +54,24 @@ class TopNav extends Component {
                     <div style={this.state.logged ? { display: 'none' } : { display: 'block' }}>
                         <form className="flex top-login" onSubmit={this.submitHandler}>
                             <input type="text" className="w3-input" placeholder="Username" name="username" value={this.state.username} onChange={this.usernameInputHandler} required />
-                            <input type="password" className="w3-input" placeholder="Password" name="password" value={this.state.password} onChange={this.passwordInputHandler} required />
+                            <input type="text" className="w3-input" placeholder="Password" name="password" value={this.state.password} onChange={this.passwordInputHandler} required />
                             <button className="w3-white">Login</button>
                         </form>
                     </div>
                     <div className="top-login" style={this.state.logged ? { display: 'block' } : { display: 'none' }}>
-                        <div className="w3-bar">
+                        <div className="w3-bar" style={this.state.type == 1 ? { display: 'block' } : { display: 'none' }}>
                             <a href="#" className="w3-bar-item w3-button w3-bottombar">HOME</a>
                             <a href="#" className="w3-bar-item w3-button w3-bottombar">CREATE POST</a>
                             <a href="#" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
+                        </div>
+                        <div className="w3-bar" style={this.state.type == 2 ? { display: 'block' } : { display: 'none' }}>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">HOME</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">MY FEEDS</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">OVERVIEW</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
                             <a href="#" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
                         </div>
                     </div>
