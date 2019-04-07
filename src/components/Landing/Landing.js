@@ -4,7 +4,6 @@ import axios from 'axios';
 import Overlay from '../Overlay';
 import CardArea from '../CardArea';
 import Post from '../Post';
-import ProfileCard from '../ProfileCard/ProfileCard';
 
 export class Landing extends Component {
 
@@ -123,7 +122,6 @@ export class Landing extends Component {
                     </div>
                 </div>
                 <CardArea />
-                <ProfileCard />
                 <Post title="Recent Feeds" />
             </div>
         )

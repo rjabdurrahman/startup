@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Post.css'
+import ProfileCard from './ProfileCard/ProfileCard';
 
 class Post extends Component {
 
@@ -28,7 +29,17 @@ class Post extends Component {
         ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
-                <div className=" w3-border w3-card-2">
+                <div className="w3-border w3-card-2">
+                    <ul className="w3-ul">
+                        <li className=" w3-light-gray">
+                            <h3>Experienced Clients</h3>
+                        </li>
+                    </ul>
+                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px', marginBottom: '15px'}}>
+                        <ProfileCard name="Abdur Rahman" />
+                    </div>
+                </div>
+                <div className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>{this.props.title ? this.props.title : 'My Feeds'}</h3>
