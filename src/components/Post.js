@@ -8,7 +8,8 @@ class Post extends Component {
         super(props)
         this.state = {
             posts: [],
-            users: []
+            users: [],
+            count: 0
         }
     }
 
@@ -16,6 +17,10 @@ class Post extends Component {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(res => res.json())
             .then(data => this.setState({ posts: data }))
+            .catch(err => console.log(err));
+        fetch('http://localhost:5000/api/users/list')
+            .then(res => res.json())
+            .then(data => this.setState({ users: data }))
             .catch(err => console.log(err));
     }
     render() {
@@ -28,6 +33,9 @@ class Post extends Component {
                 </a>
             </li>
         ));
+        const userList = this.state.users.map(user => (
+            <ProfileCard key={'id' + user._id} data={user._id} name={user.username} />
+        ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
                 <div className="w3-border w3-card-2">
@@ -36,8 +44,8 @@ class Post extends Component {
                             <h3>Experienced Clients</h3>
                         </li>
                     </ul>
-                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px', marginBottom: '15px'}}>
-                        <ProfileCard name="Abdur Rahman" />
+                    <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '15px', marginBottom: '15px' }}>
+                        {userList}
                     </div>
                 </div>
                 <div className="w3-border w3-card-2">
