@@ -28,7 +28,7 @@ export class CreatePost extends Component {
     submitHanler = (event) => {
         event.preventDefault();
         console.log('submitted');
-        axios.post('http://localhost:5000/data/posts', this.state.post)
+        axios.post('http://localhost:5000/api/posts', this.state.post)
             .then(res => {
                 console.log(res.data);
                 if(res.message){
