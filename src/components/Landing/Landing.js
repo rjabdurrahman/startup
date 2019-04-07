@@ -122,8 +122,8 @@ export class Landing extends Component {
                         </div>
                     </div>
                 </div>
-                <ProfileCard />
                 <CardArea />
+                <ProfileCard />
                 <Post title="Recent Feeds" />
             </div>
         )
