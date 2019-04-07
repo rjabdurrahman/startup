@@ -63,7 +63,7 @@ class TopNav extends Component {
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">CREATE POST</a>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
-                            <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
+                            <a href="/" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
                         </div>
                         <div className="w3-bar" style={this.state.type === 2 ? { display: 'block' } : { display: 'none' }}>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">HOME</a>
@@ -71,7 +71,7 @@ class TopNav extends Component {
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">OVERVIEW</a>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
-                            <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
+                            <a href="/" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
                         </div>
                     </div>
                 </div>
