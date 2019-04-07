@@ -9,10 +9,11 @@ class TopNav extends Component {
         this.state = {
             username: '',
             password: '',
-            logged: global.localStorage.getItem('user') ? true : false
+            logged: global.localStorage.getItem('user') ? true : false,
+            type: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
-        if (global.localStorage.getItem('user') && global.location.pathname != "/create-post")
-            global.location.href = "/create-post";
+        // if (global.localStorage.getItem('user') && global.location.pathname != "/create-post")
+        //     global.location.href = "/create-post";
     }
     usernameInputHandler = (event) => {
         this.setState({ username: event.target.value });
@@ -25,9 +26,10 @@ class TopNav extends Component {
         axios.post('http://localhost:5000/api/users/login', { username: this.state.username, password: this.state.password })
             .then(res => {
                 this.setState({ logged: true });
+                this.setState({ type: res.data.type });
                 global.localStorage.setItem('user', JSON.stringify(res.data));
                 // global.location.href = "/create-post";
-                console.log(this.state.logged)
+                console.log(this.state)
                 if (!(res.status === 200)) {
                     alert(res.message);
                 }
