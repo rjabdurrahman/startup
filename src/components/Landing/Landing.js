@@ -98,7 +98,7 @@ export class Landing extends Component {
                                             <label className="w3-medium">Password</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" name="password" value={this.state.user.password} onChange={this.inputHandler} required />
+                                            <input className="w3-input w3-border" type="password" name="password" value={this.state.user.password} onChange={this.inputHandler} required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -106,12 +106,12 @@ export class Landing extends Component {
                                             <label className="w3-medium">Re Passowrd</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" required />
+                                            <input className="w3-input w3-border" type="password" required />
                                         </div>
                                     </div>
                                     <p>
                                         <input className="w3-check" type="checkbox" onChange={() => { this.setState({ agree: true }) }} />
-                                        <label style={{ fontSize: '12px', color: 'indigo' }}>I accept the <a style={{ color: 'blue' }} href="terms">Terms and Conditions</a>.</label></p>
+                                        <label style={{ fontSize: '12px', color: 'indigo' }}> I accept the <a style={{ color: 'blue' }} href="terms">Terms and Conditions</a>.</label></p>
                                     <p>
                                     </p><p className="clearfix">
                                         <button className="w3-btn main-bg-color div-title" style={{ float: 'right' }}>Submit</button>

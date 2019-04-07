@@ -29,12 +29,11 @@ class TopNav extends Component {
                 this.setState({ type: res.data.type });
                 global.localStorage.setItem('user', JSON.stringify(res.data));
                 // global.location.href = "/create-post";
-                console.log(this.state)
-                if (!(res.status === 200)) {
-                    alert(res.message);
-                }
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                alert('Username or Password is Incorrect!');
+            });
     }
 
     logOutHandler = () => {
@@ -54,7 +53,7 @@ class TopNav extends Component {
                     <div style={this.state.logged ? { display: 'none' } : { display: 'block' }}>
                         <form className="flex top-login" onSubmit={this.submitHandler}>
                             <input type="text" className="w3-input" placeholder="Username" name="username" value={this.state.username} onChange={this.usernameInputHandler} required />
-                            <input type="text" className="w3-input" placeholder="Password" name="password" value={this.state.password} onChange={this.passwordInputHandler} required />
+                            <input type="password" className="w3-input" placeholder="Password" name="password" value={this.state.password} onChange={this.passwordInputHandler} required />
                             <button className="w3-white">Login</button>
                         </form>
                     </div>
