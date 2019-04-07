@@ -37,6 +37,11 @@ class TopNav extends Component {
             .catch(err => console.log(err));
     }
 
+    logOutHandler = () => {
+        this.setState({ logged: false });
+        global.localStorage.removeItem('user');
+    }
+
     render() {
         return (
             <header>
@@ -49,12 +54,17 @@ class TopNav extends Component {
                     <div style={this.state.logged ? { display: 'none' } : { display: 'block' }}>
                         <form className="flex top-login" onSubmit={this.submitHandler}>
                             <input type="text" className="w3-input" placeholder="Username" name="username" value={this.state.username} onChange={this.usernameInputHandler} required />
-                            <input type="text" className="w3-input" placeholder="Password" name="password" value={this.state.password} onChange={this.passwordInputHandler} required />
+                            <input type="password" className="w3-input" placeholder="Password" name="password" value={this.state.password} onChange={this.passwordInputHandler} required />
                             <button className="w3-white">Login</button>
                         </form>
                     </div>
                     <div className="top-login" style={this.state.logged ? { display: 'block' } : { display: 'none' }}>
-                        <button className="w3-white" onClick={() => this.setState({ logged: false })}>Logout</button>
+                        <div className="w3-bar">
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">HOME</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">CREATE POST</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
+                            <a href="#" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
+                        </div>
                     </div>
                 </div>
             </header>

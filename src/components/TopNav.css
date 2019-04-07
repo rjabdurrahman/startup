@@ -32,3 +32,7 @@
     cursor: pointer;
     padding: 0 12px;
 }
+
+.w3-bar .w3-bar-item {
+    border-color: #014387 !important;
+}
