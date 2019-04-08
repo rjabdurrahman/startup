@@ -14,7 +14,7 @@ class Post extends Component {
     }
 
     componentWillMount() {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('http://localhost:5000/api/posts')
             .then(res => res.json())
             .then(data => this.setState({ posts: data }))
             .catch(err => console.log(err));
@@ -28,8 +28,8 @@ class Post extends Component {
             <li key={post.id}>
                 <a href="http://gov.org">
                     <h4 style={{ margin: 0 }} className="title">{post.title}</h4>
-                    <h6 style={{ margin: 0, display: 'inline' }} className="author">Author Name</h6>
-                    <p>{post.body}</p>
+                    <h6 style={{ margin: 0, display: 'inline' }} className="author">{post.author}</h6>
+                    <p>{post.description}</p>
                 </a>
             </li>
         ));

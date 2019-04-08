@@ -59,8 +59,8 @@ class TopNav extends Component {
                     </div>
                     <div className="top-login" style={this.state.logged ? { display: 'block' } : { display: 'none' }}>
                         <div className="w3-bar" style={this.state.type === 1 ? { display: 'block' } : { display: 'none' }}>
-                            <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">HOME</a>
-                            <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">CREATE POST</a>
+                            <a href="/" className="w3-bar-item w3-button w3-bottombar">HOME</a>
+                            <a href="/create-post" className="w3-bar-item w3-button w3-bottombar">CREATE POST</a>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
                             <a href="jsutlinek" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>
