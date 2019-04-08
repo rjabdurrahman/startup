@@ -19,7 +19,8 @@ export class Landing extends Component {
                 type: 1
             },
             agree: false,
-            confirmPassword: ''
+            confirmPassword: '',
+            userType: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
     }
 
@@ -34,8 +35,8 @@ export class Landing extends Component {
         )
     }
 
-    confirmPasswordHandler = (event) =>{
-        this.setState({confirmPassword: event.target.value});
+    confirmPasswordHandler = (event) => {
+        this.setState({ confirmPassword: event.target.value });
     }
 
     submitHandler = (event) => {
@@ -68,10 +69,19 @@ export class Landing extends Component {
         return (
             <div>
                 <Overlay>
-                    <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
-                    <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
-                        <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Startup' }); this.updateType(1) }}>Startup</button>
-                        <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Experienced' }); this.updateType(2) }}>Experienced</button>
+                    <div style={this.state.userType == 0 ? { display: 'block' } : { display: 'none' }}>
+                        <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
+                        <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
+                            <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Startup' }); this.updateType(1) }}>Startup</button>
+                            <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Experienced' }); this.updateType(2) }}>Experienced</button>
+                        </div>
+                    </div>
+                    <div style={this.state.userType == 1 ? { display: 'block', width: '800px' } : { display: 'none' }}>
+                        <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Boost Your Business</h1>
+                        <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
+                            <a href="/create-post" style={{marginBottom: '20px'}} className="w3-btn main-bg-color">Create New Post</a>
+                            <a className="w3-btn main-bg-color">Show Experienced</a>
+                        </div>
                     </div>
                 </Overlay>
                 <div style={this.state.showRegister ? { display: 'block' } : { display: 'none' }} className="w3-modal">
