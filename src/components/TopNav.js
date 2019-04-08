@@ -46,7 +46,7 @@ class TopNav extends Component {
             <header>
                 <div className="header-nav" style={{ justifyContent: 'space-between' }}>
                     <div style={{ fontFamily: '"Pacifico", cursive', fontSize: '25px' }}>
-                        <a href="#/">
+                        <a href="/">
                             <h2 style={{ margin: '0' }} className="pac-font">TenStartup</h2>
                         </a>
                     </div>

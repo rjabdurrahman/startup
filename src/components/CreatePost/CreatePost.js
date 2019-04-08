@@ -28,10 +28,10 @@ export class CreatePost extends Component {
     submitHanler = (event) => {
         event.preventDefault();
         console.log('submitted');
-        axios.post('http://localhost:5000/api/posts', this.state.post)
+        axios.post('http://localhost:5000/api/posts', this.state.post, { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
             .then(res => {
                 console.log(res.data);
-                if(res.message){
+                if (res.message) {
                     alert(res.message);
                 }
             })

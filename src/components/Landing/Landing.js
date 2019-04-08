@@ -80,7 +80,7 @@ export class Landing extends Component {
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Boost Your Business</h1>
                         <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
                             <a href="/create-post" style={{marginBottom: '20px'}} className="w3-btn main-bg-color">Create New Post</a>
-                            <a className="w3-btn main-bg-color">Show Experienced</a>
+                            <a href="/posts" className="w3-btn main-bg-color">Show Experienced</a>
                         </div>
                     </div>
                 </Overlay>
