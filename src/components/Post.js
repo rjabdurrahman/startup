@@ -9,8 +9,10 @@ class Post extends Component {
         this.state = {
             posts: [],
             users: [],
-            count: 0
+            count: 0,
+            userType: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
+        console.log(this.state.userType);
     }
 
     componentWillMount() {
@@ -25,7 +27,7 @@ class Post extends Component {
     }
     render() {
         const postItems = this.state.posts.map(post => (
-            <li key={post.id}>
+            <li key={post._id}>
                 <a href="http://gov.org">
                     <h4 style={{ margin: 0 }} className="title">{post.title}</h4>
                     <h6 style={{ margin: 0, display: 'inline' }} className="author">{post.author}</h6>
@@ -41,7 +43,7 @@ class Post extends Component {
         ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
-                <div className="w3-border w3-card-2">
+                <div style={this.state.userType == 1 ? {display: 'block'} : {display: 'none'}} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>Experienced Clients</h3>
@@ -51,7 +53,7 @@ class Post extends Component {
                         {userList}
                     </div>
                 </div>
-                <div className="w3-border w3-card-2">
+                <div style={this.state.userType == 2 ? {display: 'block'} : {display: 'none'}} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>{this.props.title ? this.props.title : 'My Feeds'}</h3>

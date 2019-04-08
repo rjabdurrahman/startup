@@ -28,7 +28,7 @@ class TopNav extends Component {
                 this.setState({ logged: true });
                 this.setState({ type: res.data.type });
                 global.localStorage.setItem('user', JSON.stringify(res.data));
-                // global.location.href = "/create-post";
+                global.location.href = "/";
             })
             .catch(err => {
                 console.log(err);
