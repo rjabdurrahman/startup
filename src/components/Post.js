@@ -28,14 +28,21 @@ class Post extends Component {
     render() {
         const postItems = this.state.posts.map(post => (
             <li key={post._id}>
-                <a href="http://gov.org">
-                    <h4 style={{ margin: 0 }} className="title">{post.title}</h4>
-                    <h6 style={{ margin: 0, display: 'inline' }} className="author"><b>By:</b> {post.author}</h6>
-                    <h6 style={{ margin: 0 }} className="author"><b>Estimated Budget:</b> {post.budget}</h6>
-                    <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
+                <div>
+                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                        <div>
+                            <h4 style={{ margin: 0 }} className="title">{post.title}</h4>
+                            <h6 style={{ margin: 0, display: 'inline' }} className="author"><b>By:</b> {post.author}</h6>
+                            <h6 style={{ margin: 0 }} className="author"><b>Estimated Budget:</b> {post.budget}</h6>
+                            <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
+                        </div>
+                        <div>
+                            <button className="w3-btn w3-indigo w3-round-medium" style={{marginTop: '20px', marginRight: '30px'}}>Submit Proposal</button>
+                        </div>
+                    </div>
                     <p>{post.description}</p>
-                    <p>Skills: {post.skills.map(x => (<span style={{backgroundColor: 'gray', marginRight: '8px', color: 'white', padding: '6px 12px', borderRadius: '8px'}}>{x + ' '}</span>))}</p>
-                </a>
+                    <p>Skills: {post.skills.map(x => (<span style={{ backgroundColor: 'gray', marginRight: '8px', color: 'white', padding: '6px 12px', borderRadius: '8px' }}>{x + ' '}</span>))}</p>
+                </div>
             </li>
         ));
         const userList = this.state.users.map(user => (
@@ -43,7 +50,7 @@ class Post extends Component {
         ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
-                <div style={this.state.userType == 1 ? {display: 'block'} : {display: 'none'}} className="w3-border w3-card-2">
+                <div style={this.state.userType == 1 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>Experienced Clients</h3>
@@ -53,7 +60,7 @@ class Post extends Component {
                         {userList}
                     </div>
                 </div>
-                <div style={this.state.userType == 2 ? {display: 'block'} : {display: 'none'}} className="w3-border w3-card-2">
+                <div style={this.state.userType == 2 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>{this.props.title ? this.props.title : 'My Feeds'}</h3>
