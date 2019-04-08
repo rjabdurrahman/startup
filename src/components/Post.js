@@ -30,8 +30,8 @@ class Post extends Component {
             <li key={post._id}>
                 <a href="http://gov.org">
                     <h4 style={{ margin: 0 }} className="title">{post.title}</h4>
-                    <h6 style={{ margin: 0, display: 'inline' }} className="author">{post.author}</h6>
-                    <h6 style={{ margin: 0 }} className="author">Estimated Budget: {post.budget}</h6>
+                    <h6 style={{ margin: 0, display: 'inline' }} className="author"><b>By:</b> {post.author}</h6>
+                    <h6 style={{ margin: 0 }} className="author"><b>Estimated Budget:</b> {post.budget}</h6>
                     <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                     <p>{post.description}</p>
                     <p>Skills: {post.skills.map(x => (<span style={{backgroundColor: 'gray', marginRight: '8px', color: 'white', padding: '6px 12px', borderRadius: '8px'}}>{x + ' '}</span>))}</p>
