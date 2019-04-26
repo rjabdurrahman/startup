@@ -12,12 +12,27 @@ class Post extends Component {
             users: [],
             count: 0,
             proposal: '',
+            amount: 0,
+            message: '',
+            deadline: '',
             proposalBudget: 0,
             coverText: '',
             showPorposal: false,
             userType: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
         console.log(this.state.userType);
+    }
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        console.log('submitted');
+        axios.post('http://localhost:5000/api/proposal', { id: this.state.proposal, amount: this.state.amount, message: this.state.message, deadline: this.state.deadline }, { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
+            .then(res => {
+                if (res.status == 200) {
+                    alert('Proposal Sucessfully Submitted!');
+                }
+            })
+            .catch(err => alert('Something Went Wrong! ' + err.message));
     }
 
     componentWillMount() {
@@ -43,7 +58,7 @@ class Post extends Component {
                         </div>
                         <div>
                             <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id }) }}>Submit Proposal</button>
-                            <div style={{textAlign: 'center', padding: '6px', color: 'gray'}}>Propsals: {post.proposals.length}</div>
+                            <div style={{ textAlign: 'center', padding: '6px', color: 'gray' }}>Propsals: {post.proposals.length}</div>
                         </div>
                     </div>
                     <p>{post.description}</p>
@@ -88,13 +103,13 @@ class Post extends Component {
                             <div className="w3-container">
                                 <form onSubmit={this.submitHandler}>
                                     <p><label>Budget</label>
-                                        <input className="w3-input w3-border" name="budget" type="number" onChange={this.inputHandler} />
+                                        <input className="w3-input w3-border" name="budget" type="number" onChange={(event) => this.setState({ amount: event.target.value })} />
                                     </p>
                                     <p><label>Deadline</label>
-                                        <input className="w3-input w3-border" name="deadline" type="date" onChange={this.inputHandler} />
+                                        <input className="w3-input w3-border" name="deadline" type="date" onChange={(event) => this.setState({ deadline: event.target.value })} />
                                     </p>
                                     <p><label>Cover Letter</label>
-                                        <textarea className="w3-input w3-border" name="description" type="text" onChange={this.inputHandler}></textarea>
+                                        <textarea className="w3-input w3-border" name="description" type="text" onChange={(event) => this.setState({ message: event.target.value })}></textarea>
                                     </p>
                                     <p className="clearfix"><button style={{ float: 'right' }} className="w3-btn main-bg-color">Submit</button></p>
                                 </form>
