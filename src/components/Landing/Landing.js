@@ -145,7 +145,7 @@ export class Landing extends Component {
                     </div>
                 </div>
                 <CardArea />
-                <Post title="Recent Feeds" />
+                {/* <Post title="Recent Feeds" /> */}
             </div>
         )
     }

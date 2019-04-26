@@ -53,6 +53,9 @@ class Post extends Component {
             .then(data => this.setState({ users: data }))
             .catch(err => console.log(err));
     }
+    checkProposal = function(proposals){
+        return proposals.find(x => x.author === JSON.parse(global.localStorage.getItem('user')).username);
+    }
     render() {
         const postItems = this.state.posts.map(post => (
             <li key={post._id}>
@@ -65,7 +68,7 @@ class Post extends Component {
                             <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                         </div>
                         <div>
-                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id, amount: post.budget }) }}>Submit Proposal</button>
+                            <button className="w3-btn w3-indigo w3-round-medium" disabled={this.checkProposal(post.proposals) ? true : false} style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id, amount: post.budget }) }}>{this.checkProposal(post.proposals) ? 'Submitted' : 'Submit Proposal'}</button>
                             <div style={{ textAlign: 'center', padding: '6px', color: 'gray' }}>Propsals: {post.proposals.length}</div>
                         </div>
                     </div>
