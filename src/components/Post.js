@@ -43,6 +43,7 @@ class Post extends Component {
                         </div>
                         <div>
                             <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id }) }}>Submit Proposal</button>
+                            <div style={{textAlign: 'center', padding: '6px', color: 'gray'}}>Propsals: {post.proposals.length}</div>
                         </div>
                     </div>
                     <p>{post.description}</p>

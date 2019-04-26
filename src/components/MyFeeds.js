@@ -28,9 +28,13 @@ class myFeeds extends Component {
                             <h6 style={{ margin: 0 }} className="author"><b>Estimated Budget:</b> {post.budget}</h6>
                             <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                         </div>
+                        <div>
+                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id }) }}>View Propsals: {post.proposals.length}</button>
+                        </div>
                     </div>
                     <p>{post.description}</p>
                     <p>Skills: {post.skills.map(x => (<span style={{ backgroundColor: 'gray', marginRight: '8px', color: 'white', padding: '6px 12px', borderRadius: '8px' }}>{x + ' '}</span>))}</p>
+                    <p></p>
                 </div>
             </li>
         ));
