@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 import './Post.css'
 import ProfileCard from './ProfileCard/ProfileCard';
 
@@ -11,6 +12,8 @@ class Post extends Component {
             users: [],
             count: 0,
             proposal: '',
+            proposalBudget: 0,
+            coverText: '',
             showPorposal: false,
             userType: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
@@ -39,7 +42,7 @@ class Post extends Component {
                             <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                         </div>
                         <div>
-                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true }) }}>Submit Proposal</button>
+                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id }) }}>Submit Proposal</button>
                         </div>
                     </div>
                     <p>{post.description}</p>
@@ -62,6 +65,7 @@ class Post extends Component {
                         {userList}
                     </div>
                 </div>
+                {/* For experienced to view all posts */}
                 <div style={this.state.userType == 2 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
@@ -91,7 +95,7 @@ class Post extends Component {
                                     <p><label>Cover Letter</label>
                                         <textarea className="w3-input w3-border" name="description" type="text" onChange={this.inputHandler}></textarea>
                                     </p>
-                                    <p className="clearfix"><button style={{float: 'right'}} className="w3-btn main-bg-color">Submit</button></p>
+                                    <p className="clearfix"><button style={{ float: 'right' }} className="w3-btn main-bg-color">Submit</button></p>
                                 </form>
                             </div>
                         </div>

@@ -62,6 +62,7 @@ class TopNav extends Component {
                             <a href="/" className="w3-bar-item w3-button w3-bottombar">HOME</a>
                             <a href="/create-post" className="w3-bar-item w3-button w3-bottombar">CREATE POST</a>
                             <a href="/posts" className="w3-bar-item w3-button w3-bottombar">OVERVIEW</a>
+                            <a href="/my-feeds" className="w3-bar-item w3-button w3-bottombar">MY FEEDS</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>

@@ -8,6 +8,7 @@ import Landing from './components/Landing/Landing';
 import Footer from './components/Footer';
 import Post from './components/Post';
 import CreatePost from './components/CreatePost/CreatePost';
+import myFeeds from './components/MyFeeds';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route path='/' exact component={Landing} />
             <Route path='/posts' exact component={Post} />
             <Route path='/create-post' exact component={CreatePost} />
+            <Route path='/my-feeds' exact component={myFeeds} />
           </div>
         </BrowserRouter>
         <Footer />
