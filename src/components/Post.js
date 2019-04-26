@@ -29,6 +29,13 @@ class Post extends Component {
         axios.post('http://localhost:5000/api/proposal', { id: this.state.proposal, amount: this.state.amount, message: this.state.message, deadline: this.state.deadline }, { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
             .then(res => {
                 if (res.status == 200) {
+                    this.setState(
+                        {
+                            showPorposal: false,
+                            amount: 0,
+                            message: '',
+                        }
+                    );
                     alert('Proposal Sucessfully Submitted!');
                     global.location.reload();
                 }
@@ -104,13 +111,13 @@ class Post extends Component {
                             <div className="w3-container">
                                 <form onSubmit={this.submitHandler}>
                                     <p><label>Budget</label>
-                                        <input className="w3-input w3-border" name="budget" type="number" onChange={(event) => this.setState({ amount: event.target.value })} />
+                                        <input className="w3-input w3-border" value={this.state.amount} name="budget" type="number" onChange={(event) => this.setState({ amount: event.target.value })} />
                                     </p>
                                     <p><label>Deadline</label>
                                         <input className="w3-input w3-border" name="deadline" type="date" onChange={(event) => this.setState({ deadline: event.target.value })} />
                                     </p>
                                     <p><label>Cover Letter</label>
-                                        <textarea className="w3-input w3-border" name="description" type="text" onChange={(event) => this.setState({ message: event.target.value })}></textarea>
+                                        <textarea className="w3-input w3-border" value={this.state.message} name="description" type="text" onChange={(event) => this.setState({ message: event.target.value })}></textarea>
                                     </p>
                                     <p className="clearfix"><button style={{ float: 'right' }} className="w3-btn main-bg-color">Submit</button></p>
                                 </form>
