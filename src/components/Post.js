@@ -30,6 +30,7 @@ class Post extends Component {
             .then(res => {
                 if (res.status == 200) {
                     alert('Proposal Sucessfully Submitted!');
+                    global.location.reload();
                 }
             })
             .catch(err => alert('Something Went Wrong! ' + err.message));
