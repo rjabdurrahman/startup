@@ -7,6 +7,8 @@ class myFeeds extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            proposal: [],
+            showPorposal: false,
             myFeeds: [],
             userType: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
@@ -29,7 +31,7 @@ class myFeeds extends Component {
                             <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                         </div>
                         <div>
-                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id }) }}>View Propsals: {post.proposals.length}</button>
+                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post.proposals }) }}>View Propsals: <span className="w3-badge w3-white">{post.proposals.length}</span></button>
                         </div>
                     </div>
                     <p>{post.description}</p>
@@ -38,10 +40,25 @@ class myFeeds extends Component {
                 </div>
             </li>
         ));
+        const proposals = this.state.proposal.map(pro => (
+            <li className="w3-hover-pale-green">
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <h6><span style={{fontWeight: 'bold', textDecoration: 'underline'}}>User:</span> {pro.author}</h6>
+                    <h6><span style={{fontWeight: 'bold', textDecoration: 'underline'}}>Bidded:</span> {pro.amount}</h6>
+                </div>
+                <div>
+                    <h6><span style={{fontWeight: 'bold', textDecoration: 'underline'}}>Cover Letter:</span></h6>
+                    <p>{pro.message}</p>
+                    <p>
+                    <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true }) }}>Send Invitation</button>
+                    </p>
+                </div>
+            </li>
+        ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
                 {/* For Strtup To View their created post */}
-                <div style={this.state.userType == 1 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
+                <div style={this.state.userType === 1 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>{this.props.title ? this.props.title : 'My Created Feeds'}</h3>
@@ -51,6 +68,23 @@ class myFeeds extends Component {
                         {myFeeds}
                     </ul>
                 </div>
+                {/* Proposal Area */}
+                <div style={this.state.showPorposal ? { display: 'block' } : { display: 'none' }} className="w3-modal">
+                    <div className="w3-modal-content w3-animate-zoom div-box" style={{ backgroundColor: 'transparent' }}>
+                        <div className="w3-light-gray w3-card-4 margin-auto">
+                            <div className="w3-container main-bg-color div-title">
+                                <span onClick={() => this.setState({ showPorposal: false })} className="w3-button w3-display-topright">×</span>
+                                <h2>Proposals</h2>
+                            </div>
+                            <div className="w3-container">
+                                <ul className="w3-ul">
+                                    {proposals}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Proposal Area End */}
             </div>
         )
     }

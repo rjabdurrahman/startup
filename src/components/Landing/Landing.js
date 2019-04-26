@@ -69,21 +69,21 @@ export class Landing extends Component {
         return (
             <div>
                 <Overlay>
-                    <div style={this.state.userType == 0 ? { display: 'block' } : { display: 'none' }}>
+                    <div style={this.state.userType === 0 ? { display: 'block' } : { display: 'none' }}>
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Get Started As A</h1>
                         <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
                             <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Startup' }); this.updateType(1) }}>Startup</button>
                             <button className="w3-btn main-bg-color" onClick={() => { this.setState({ showRegister: true, regType: 'Experienced' }); this.updateType(2) }}>Experienced</button>
                         </div>
                     </div>
-                    <div style={this.state.userType == 1 ? { display: 'block', width: '800px' } : { display: 'none' }}>
+                    <div style={this.state.userType === 1 ? { display: 'block', width: '800px' } : { display: 'none' }}>
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Boost Your Business</h1>
                         <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
                             <a href="/create-post" style={{marginBottom: '20px'}} className="w3-btn main-bg-color">Create New Post</a>
                             <a href="/posts" className="w3-btn w3-white">Show Experienced</a>
                         </div>
                     </div>
-                    <div style={this.state.userType == 2 ? { display: 'block', width: '800px', marginLeft: 'auto' } : { display: 'none' }}>
+                    <div style={this.state.userType === 2 ? { display: 'block', width: '800px', marginLeft: 'auto' } : { display: 'none' }}>
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Provide Your Experience</h1>
                         <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
                             <a href="/" style={{marginBottom: '20px'}} className="w3-btn w3-white">Create Profile</a>

@@ -28,7 +28,7 @@ class Post extends Component {
         console.log('submitted');
         axios.post('http://localhost:5000/api/proposal', { id: this.state.proposal, amount: this.state.amount, message: this.state.message, deadline: this.state.deadline }, { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
             .then(res => {
-                if (res.status == 200) {
+                if (res.status === 200) {
                     this.setState(
                         {
                             showPorposal: false,
@@ -65,7 +65,7 @@ class Post extends Component {
                             <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                         </div>
                         <div>
-                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id }) }}>Submit Proposal</button>
+                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post._id, amount: post.budget }) }}>Submit Proposal</button>
                             <div style={{ textAlign: 'center', padding: '6px', color: 'gray' }}>Propsals: {post.proposals.length}</div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ class Post extends Component {
         ));
         return (
             <div className="w3-container" style={{ marginTop: 0, paddingTop: '80px', marginBottom: '20px' }}>
-                <div style={this.state.userType == 1 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
+                <div style={this.state.userType === 1 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>Experienced Clients</h3>
@@ -90,7 +90,7 @@ class Post extends Component {
                     </div>
                 </div>
                 {/* For experienced to view all posts */}
-                <div style={this.state.userType == 2 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
+                <div style={this.state.userType === 2 ? { display: 'block' } : { display: 'none' }} className="w3-border w3-card-2">
                     <ul className="w3-ul">
                         <li className=" w3-light-gray">
                             <h3>{this.props.title ? this.props.title : 'My Feeds'}</h3>
@@ -117,7 +117,7 @@ class Post extends Component {
                                         <input className="w3-input w3-border" name="deadline" type="date" onChange={(event) => this.setState({ deadline: event.target.value })} />
                                     </p>
                                     <p><label>Cover Letter</label>
-                                        <textarea className="w3-input w3-border" value={this.state.message} name="description" type="text" onChange={(event) => this.setState({ message: event.target.value })}></textarea>
+                                        <textarea rows="8" className="w3-input w3-border" value={this.state.message} name="description" type="text" onChange={(event) => this.setState({ message: event.target.value })}></textarea>
                                     </p>
                                     <p className="clearfix"><button style={{ float: 'right' }} className="w3-btn main-bg-color">Submit</button></p>
                                 </form>
