@@ -70,7 +70,7 @@ class TopNav extends Component {
                         <div className="w3-bar" style={this.state.type === 2 ? { display: 'block' } : { display: 'none' }}>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar">HOME</a>
                             <a href="/posts" className="w3-bar-item w3-button w3-bottombar">FEEDS</a>
-                            <a href="/" className="w3-bar-item w3-button w3-bottombar">REPORTS</a>
+                            <a href="/invs" className="w3-bar-item w3-button w3-bottombar">REPORTS</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar">MESSAGES</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar">PROFILE</a>
                             <a href="/" className="w3-bar-item w3-button w3-bottombar" onClick={this.logOutHandler}>LOG OUT</a>

@@ -10,6 +10,8 @@ class myFeeds extends Component {
             proposal: [],
             showPorposal: false,
             myFeeds: [],
+            author: '',
+            postId: '',
             userType: global.localStorage.getItem('user') ? JSON.parse(global.localStorage.getItem('user')).type : 0
         }
         console.log(this.state.userType);
@@ -18,6 +20,12 @@ class myFeeds extends Component {
     componentWillMount() {
         axios.get('http://localhost:5000/api/posts/myfeed', { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
             .then(res => this.setState({ myFeeds: res.data }))
+            .catch(err => console.log(err));
+    }
+
+    sendInvite = function () {
+        axios.post('http://localhost:5000/api/users/invitation', { username: this.state.author, post: this.state.postId }, { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
+            .then(res => console.log('Invited'))
             .catch(err => console.log(err));
     }
     render() {
@@ -31,7 +39,7 @@ class myFeeds extends Component {
                             <h5 style={{ margin: 0, textDecoration: 'underline' }}>Description:</h5>
                         </div>
                         <div>
-                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post.proposals }) }}>View Propsals: <span className="w3-badge w3-white">{post.proposals.length}</span></button>
+                            <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true, proposal: post.proposals, postId: post._id }) }}>View Propsals: <span className="w3-badge w3-white">{post.proposals.length}</span></button>
                         </div>
                     </div>
                     <p>{post.description}</p>
@@ -43,14 +51,14 @@ class myFeeds extends Component {
         const proposals = this.state.proposal.map(pro => (
             <li className="w3-hover-pale-green">
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <h6><span style={{fontWeight: 'bold', textDecoration: 'underline'}}>User:</span> {pro.author}</h6>
-                    <h6><span style={{fontWeight: 'bold', textDecoration: 'underline'}}>Bidded:</span> {pro.amount}</h6>
+                    <h6><span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>User:</span> {pro.author}</h6>
+                    <h6><span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Bidded:</span> {pro.amount}</h6>
                 </div>
                 <div>
-                    <h6><span style={{fontWeight: 'bold', textDecoration: 'underline'}}>Cover Letter:</span></h6>
+                    <h6><span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>Cover Letter:</span></h6>
                     <p>{pro.message}</p>
                     <p>
-                    <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ showPorposal: true }) }}>Send Invitation</button>
+                        <button className="w3-btn w3-indigo w3-round-medium" style={{ marginTop: '20px', marginRight: '30px' }} onClick={() => { this.setState({ author: pro.author }); this.sendInvite() }}>Send Invitation</button>
                     </p>
                 </div>
             </li>
