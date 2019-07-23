@@ -2,7 +2,7 @@ const reducer = function (state = {}, { type, payload }) {
     if (type === 'CLICK_ON_REGISTER') {
         return {
             ...state,
-            showRegister: true
+            showRegister: payload
         }
     }
     return state;

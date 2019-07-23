@@ -4,6 +4,7 @@ import axios from 'axios';
 import Overlay from '../Overlay';
 import CardArea from '../CardArea';
 import Register from '../Register/Register';
+import store from '../../store';
 
 export class Landing extends Component {
 
@@ -30,6 +31,9 @@ export class Landing extends Component {
     }
 
     updateType = (n) => {
+        console.log(store.getState());
+        store.dispatch({ type: 'CLICK_ON_REGISTER', payload: true });
+        console.log(store.getState());
         this.setState(
             { user: update(this.state.user, { type: { $set: n } }) }
         )
@@ -79,14 +83,14 @@ export class Landing extends Component {
                     <div style={this.state.userType === 1 ? { display: 'block', width: '800px' } : { display: 'none' }}>
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Boost Your Business</h1>
                         <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
-                            <a href="/create-post" style={{marginBottom: '20px'}} className="w3-btn main-bg-color">Create New Post</a>
+                            <a href="/create-post" style={{ marginBottom: '20px' }} className="w3-btn main-bg-color">Create New Post</a>
                             <a href="/posts" className="w3-btn w3-white">Show Experienced</a>
                         </div>
                     </div>
                     <div style={this.state.userType === 2 ? { display: 'block', width: '800px', marginLeft: 'auto' } : { display: 'none' }}>
                         <h1 style={{ fontSize: '65px', textAlign: 'center', color: 'white' }} className="ex-font">Provide Your Experience</h1>
                         <div className="mont-font" style={{ fontSize: '25px', textAlign: 'center' }}>
-                            <a href="/" style={{marginBottom: '20px'}} className="w3-btn w3-white">Create Profile</a>
+                            <a href="/" style={{ marginBottom: '20px' }} className="w3-btn w3-white">Create Profile</a>
                             <a href="/posts" className="w3-btn main-bg-color">Show Recent Feeds</a>
                         </div>
                     </div>

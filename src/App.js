@@ -14,9 +14,6 @@ import store from './store';
 
 class App extends Component {
   render() {
-    console.log(store.getState());
-    store.dispatch({ type: 'CLICK_ON_REGISTER', payload: true });
-    console.log(store.getState());
     return (
       <div>
         <TopNav />
