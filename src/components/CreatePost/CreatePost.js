@@ -30,7 +30,7 @@ export class CreatePost extends Component {
         console.log('submitted');
         axios.post('http://localhost:5000/api/posts', this.state.post, { headers: { auth: JSON.parse(global.localStorage.getItem('user')).token } })
             .then(res => {
-                if(res.status == 200){
+                if(res.status === 200){
                     alert('Post Create Sucessfully!');
                     this.setState({
                         post: {
