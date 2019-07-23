@@ -3,7 +3,7 @@ import update from 'react-addons-update';
 import axios from 'axios';
 import Overlay from '../Overlay';
 import CardArea from '../CardArea';
-import Post from '../Post';
+import Register from '../Register/Register';
 
 export class Landing extends Component {
 
@@ -91,6 +91,7 @@ export class Landing extends Component {
                         </div>
                     </div>
                 </Overlay>
+                <Register></Register>
                 <CardArea />
                 {/* <Post title="Recent Feeds" /> */}
             </div>
