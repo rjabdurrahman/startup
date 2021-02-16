@@ -9,7 +9,8 @@ import store from '../../store';
 export class Landing extends Component {
 
     constructor() {
-        super()
+        super();
+        this.regForm = React.createRef();
         this.state = {
             showRegister: false,
             regType: 'Startup',
@@ -50,8 +51,15 @@ export class Landing extends Component {
             return;
         }
 
-        if(this.state.confirmPassword !== this.state.user.password) alert('Password doesn\'t match!');
-        if(this.state.user.password.length < 6) alert('Password must be in 6 digits!');
+        if(this.state.confirmPassword !== this.state.user.password) {
+            alert('Password doesn\'t match!');
+            return;
+        }
+        if(this.state.user.password.length < 6) {
+            alert('Password must be in 6 digits!');
+            return;
+        }
+        
         axios.post('http://localhost:5000/api/users/register', this.state.user)
             .then(res => {
                 this.setState({
@@ -65,8 +73,10 @@ export class Landing extends Component {
                     agree: false,
                     confirmPassword: ''
                 });
-                console.log(res.data);
-                // alert(res)
+                if(res.data._id) {
+                    this.regForm.current.reset();
+                    alert('Registered Successfully!');
+                }
             })
             .catch(err => console.log(err));
     }
@@ -102,13 +112,14 @@ export class Landing extends Component {
                     <div className="w3-modal-content w3-animate-zoom div-box" style={{ backgroundColor: 'transparent' }}>
                         <div className="w3-light-gray w3-card-4 margin-auto">
                             <div className="w3-container main-bg-color div-title">
-                                <span className="w3-button w3-display-topright" onClick={() => {
-                                    this.setState({ showRegister: false })
+                                <span className="w3-button w3-display-topright" onClick={(event) => {
+                                    this.setState({ showRegister: false });
+                                    this.regForm.current.reset();
                                 }}>×</span>
                                 <h2>Register As a</h2>
                             </div>
                             <div className="w3-container">
-                                <form onSubmit={this.submitHandler}>
+                                <form ref={this.regForm} onSubmit={this.submitHandler}>
                                     <div className="w3-row w3-section">
                                         <div className="w3-col" style={{ width: '120px', padding: '10px' }}>
                                             <label className="w3-medium">Username</label>
