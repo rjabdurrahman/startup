@@ -49,11 +49,11 @@ export class Landing extends Component {
             alert('Please Agree Terms and Rules!');
             return;
         }
-        console.log('submitte');
+
+        if(this.state.confirmPassword !== this.state.user.password) alert('Password doesn\'t match!');
+        if(this.state.user.password.length < 6) alert('Password must be in 6 digits!');
         axios.post('http://localhost:5000/api/users/register', this.state.user)
             .then(res => {
-                console.log(res.data);
-                console.log(res.status);
                 this.setState({
                     showRegister: false,
                     user: {
@@ -64,7 +64,9 @@ export class Landing extends Component {
                     },
                     agree: false,
                     confirmPassword: ''
-                })
+                });
+                console.log(res.data);
+                // alert(res)
             })
             .catch(err => console.log(err));
     }
@@ -112,7 +114,9 @@ export class Landing extends Component {
                                             <label className="w3-medium">Username</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="text" name="username" required />
+                                            <input onChange={ (event) => {
+                                                this.setState({ user : {...this.state.user, username: event.target.value }});
+                                            }} value={this.state.username} className="w3-input w3-border" type="text" name="username" required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -120,7 +124,9 @@ export class Landing extends Component {
                                             <label className="w3-medium">Email</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="email" name="email" required />
+                                            <input onChange={ (event) => {
+                                                this.setState({ user : {...this.state.user, email: event.target.value }});
+                                            }} value={this.state.email} className="w3-input w3-border" type="email" name="email" required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
@@ -128,19 +134,25 @@ export class Landing extends Component {
                                             <label className="w3-medium">Password</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="password" name="password" required />
+                                            <input  onChange={ (event) => {
+                                                this.setState({ user : {...this.state.user, password: event.target.value }});
+                                            }} value={this.state.password} className="w3-input w3-border" type="password" name="password" required />
                                         </div>
                                     </div>
                                     <div className="w3-row w3-section">
                                         <div className="w3-col" style={{ width: '120px', padding: '10px' }}>
-                                            <label className="w3-medium">Re Passowrd</label>
+                                            <label className="w3-medium">Re Enter Passowrd</label>
                                         </div>
                                         <div className="w3-rest">
-                                            <input className="w3-input w3-border" type="password" required />
+                                            <input onChange={ (event) => {
+                                                this.setState({ confirmPassword : event.target.value });
+                                            }} value={this.state.confirmPassword} className="w3-input w3-border" type="password" required />
                                         </div>
                                     </div>
                                     <p>
-                                        <input className="w3-check" type="checkbox" />
+                                        <input onChange={(event) => {
+                                            this.setState({ agree: event.target.checked});
+                                        }} className="w3-check" type="checkbox" />
                                         <label style={{ fontSize: '12px', color: 'indigo' }}> I accept the <a style={{ color: 'blue' }} href="terms">Terms and Conditions</a>.</label></p>
                                     <p>
                                     </p><p className="clearfix">
